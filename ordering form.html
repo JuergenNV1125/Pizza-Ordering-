@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza Ordering System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 460px;
+      width: 100%;
+      transition: transform 0.3s;
+    }
+    .container:hover {
+      transform: scale(1.01);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #444;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e63946;
+    }
+    .total {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+    .pizza-images,
+    .item-images {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .pizza-images img,
+    .item-images img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .form-inline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .form-inline label {
+      flex: 1;
+    }
+    .form-inline input[type="number"] {
+      width: 60px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pizza Order Form</h2>
+
+    <div class="pizza-images">
+      <img src="https://atsloanestable.com/wp-content/uploads/2023/06/new-york-style-pizza2.jpg" alt="Pepperoni Pizza" />
+      <img src="https://www.blossomtostem.net/wp-content/uploads/2019/03/Roasted-Mushroom-Pizza-10-735x1103.jpg" alt="Mushroom Pizza" />
+      <img src="https://embed.widencdn.net/img/beef/pz4eba64j5/1120x840px/beef-pepper-and-onion-pizza-horizontal.tif?keep=c&u=7fueml" alt="Onion Pizza" />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" />
+    </div>
+
+    <div class="form-group">
+      <label for="size">Choose Pizza Size:</label>
+      <select id="size">
+        <option value="10">Small ($10)</option>
+        <option value="15">Medium ($15)</option>
+        <option value="20">Large ($20)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Sides ($3 each):</label>
+      <div class="item-images">
+        <div>
+          <img src="https://www.allrecipes.com/thmb/sueXmRXgK-S27uRzTrJuGb-_Smc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/216077-garlic-bread-spread-step-beauty-4x3-BP-3169-ef03a4a12d8c46e196055555be5b8d79.jpg" alt="Garlic Bread">
+          <div class="form-inline">
+            <label>Garlic Bread</label>
+            <input type="number" min="0" value="0" class="side" />
+          </div>
+        </div>
+        <div>
+          <img src="https://www.spendwithpennies.com/wp-content/uploads/2013/10/Cheese-Sticks-SpendWithPennies-2-22.jpg" alt="Cheese Sticks">
+          <div class="form-inline">
+            <label>Cheese Sticks</label>
+            <input type="number" min="0" value="0" class="side" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Drinks ($2 each):</label>
+      <div class="item-images">
+        <div>
+          <img src="https://thegridfoodmarket.com/cdn/shop/products/Cokeslim_700x_533x_c92b20d9-53e5-4e4f-ab4e-157b88d68ff6.png?v=1664561013" alt="Soda">
+          <div class="form-inline">
+            <label>Soda</label>
+            <input type="number" min="0" value="0" class="drink" />
+          </div>
+        </div>
+        <div>
+          <img src="https://kidspressmagazine.com/wp-content/uploads/2014/04/dreamstime_xl_12522351.jpg" alt="Water">
+          <div class="form-inline">
+            <label>Water</label>
+            <input type="number" min="0" value="0" class="drink" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="delivery">Delivery Option:</label>
+      <select id="delivery">
+        <option value="0">Pickup (Free)</option>
+        <option value="5">Home Delivery ($5)</option>
+      </select>
+    </div>
+
+    <button onclick="calculateOrder()">Place Order</button>
+
+    <div class="total" id="orderSummary"></div>
+  </div>
+
+  <script>
+    function calculateOrder() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const sizePrice = parseFloat(document.getElementById('size').value);
+      const deliveryFee = parseFloat(document.getElementById('delivery').value);
+
+      const sides = document.querySelectorAll('.side');
+      let sidesTotal = 0;
+      sides.forEach(s => sidesTotal += parseInt(s.value) * 3);
+
+      const drinks = document.querySelectorAll('.drink');
+      let drinksTotal = 0;
+      drinks.forEach(d => drinksTotal += parseInt(d.value) * 2);
+
+      const total = sizePrice + sidesTotal + drinksTotal + deliveryFee;
+
+      if (!name || !email || !phone) {
+        document.getElementById('orderSummary').innerText = 'Please fill in all required fields.';
+        return;
+      }
+
+      const breakdown = `Pizza: $${sizePrice}\nSides: $${sidesTotal}\nDrinks: $${drinksTotal}\nDelivery: $${deliveryFee}\nTotal: $${total}`;
+
+      const summary = `${name}, here is your order summary:\n\n${breakdown}\n\nA receipt will be sent to ${email}.`;
+      document.getElementById('orderSummary').innerText = summary;
+    }
+  </script>
+</body>
+</html>
